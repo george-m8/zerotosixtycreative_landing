@@ -1,0 +1,297 @@
+/* styles.css */
+:root {
+    --text-color: #3d3d3d;
+    --link-color: #3d3d3d;
+    --logo-color: var(--text-color);
+    --background-color: #f4f4f4;
+    --highlight-background-color: #3d3d3d;
+    --highlight-color: #ffffff;
+    --font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
+  }
+
+
+* {
+    margin: 0;
+    box-sizing: border-box;
+
+}
+
+body {
+    font-family: var(--font-family);
+    text-align: center;
+    font-size: 1.4em;
+    font-weight: 720;
+    color: var(--text-color);
+    background-color: var(--background-color);
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+
+svg, video{
+    width: 100%;
+}
+
+ul{
+    list-style-type: none;
+    padding: 0;
+}
+
+a{
+    color: var(--link-color);
+    text-decoration: none;
+}
+
+.container {
+    width: 600px;
+    max-width: 100%;
+    padding:18px;
+    display: flex;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    align-items: center;
+}
+
+.email, .services, .contact p{
+    flex-shrink: 1; /* Allows the email to shrink if necessary */
+    overflow-wrap: break-word; /* Breaks long words, such as email addresses */
+    word-break: break-all; /* Ensures it breaks in a way that fits the container */
+    max-width: 100%; /* Prevents it from exceeding the width of its container */
+}
+
+.services ul {
+    display: flex;
+    flex-direction: column; /* Ensure list items stack vertically */
+    width: 100%;
+}
+
+.services li {
+    flex-shrink: 1; /* Allow list items to shrink */
+    overflow-wrap: break-word; /* Break long words to prevent overflow */
+    word-break: break-all; /* Break long strings that don't fit */
+    max-width: 100%; /* Prevent items from exceeding the container's width */
+    white-space: normal; /* Allow text to wrap normally */
+}
+
+.logo {
+    width: 512px;
+    max-width: 100%;
+    margin-top:0;
+    margin-right:auto;
+    margin-bottom: 0;
+    margin-left: auto;
+}
+
+.logo svg{
+    fill: var(--logo-color);
+}
+
+.logo {
+    opacity: 0;
+    animation: fadeIn 3s forwards;
+}
+
+@keyframes fadeIn {
+    to {
+        opacity: 1;
+    }
+}
+
+.typed-text {
+    /*white-space: nowrap;*/
+    overflow: hidden;
+}
+
+@keyframes blink-caret {
+    from, to {
+        opacity: 1;
+    }
+    50% {
+        opacity: 0;
+    }
+}
+
+/* Show/hide the cursor when typing is done */
+.cursor::after {
+    content: '.';
+    /*animation: blink-caret 1s step-end infinite;*/
+}
+
+.no-cursor::after {
+    content: '';
+    animation: none;
+}
+
+/* Fallback for typing effect */
+/*.typed-text {
+    white-space: nowrap;
+    overflow: hidden;
+    border-right: 3px solid black;
+    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
+}
+
+@keyframes typing {
+    from {
+        width: 0;
+    }
+    to {
+        width: 100%;
+    }
+}
+
+@keyframes blink-caret {
+    from, to {
+        border-color: transparent;
+    }
+    50% {
+        border-color: black;
+    }
+}*/
+
+/* Additional styling */
+.logo {
+    margin-bottom: 32px;
+}
+
+.services li{
+    margin-bottom:18px;
+}
+
+.services ul{
+    margin-bottom: 26px;
+}
+
+.contact, .email{
+    margin-bottom: 16px;
+}
+
+.contact{
+    font-size: 0.8em;
+    font-weight: 500;
+    color: var(--highlight-color);
+    text-transform: uppercase;
+}
+
+.contact p{
+    padding: 2px 3px;
+}
+
+.contact .type-animation-started{
+    background-color: var(--highlight-background-color);
+}
+
+.email a {
+    text-decoration: none;
+    color: var(--link-color);
+    font-size: 1.2em;
+}
+
+.email a::after{
+    content: '';
+    display: block;
+    height: 3.2px;
+    background: var(--link-color);
+    width: 0%;
+    transition: width 0.7s ease-in-out; /* Smooth transition */
+}
+
+.email a:hover::after {
+    width: 100%; /* Draw the line across the full width */
+}
+
+/* Optional: Reverse animation if needed using only transitions */
+.email a::after {
+    transition: width 0.7s ease-in-out; /* Smoothly transition the width */
+}
+
+.logo #logo-img, .logo #logo-svg{
+    width: 100%;
+    display: none;
+}
+
+.no-video .logo video{
+    display: none;
+}
+
+.no-video.inlinesvg .logo #logo-svg{
+    display: block;
+}
+
+.no-video.no-inlinesvg .logo #logo-img{
+    display: block;
+}
+
+
+@media screen and (max-width: 640px) {
+    .container {
+        padding: 8px;
+    }
+
+    .logo, .services li{
+        margin-bottom:16px;
+    }
+
+    .services ul{
+        margin-bottom: 26px;
+        margin-top:26px;
+    }
+
+    .logo {
+        width: 256px;
+    }
+
+    .logo img {
+        width: 100%;
+    }
+
+    .services li {
+        font-size: 0.8em;
+    }
+
+    .contact {
+        font-size: 0.6em;
+    }
+
+    .email a {
+        font-size: 1em;
+    }
+}
+
+@media screen and (max-width: 420px) {
+    .logo{
+        margin-bottom: 0px;
+    }
+    .services li{
+        margin-bottom:8px;
+    }
+
+    .contact, .email{
+        margin-bottom: 2px;
+    }
+
+    .logo {
+        width: 196px;
+    }
+
+    .services li {
+        font-size: 0.6em;
+    }
+
+    .contact {
+        font-size: 0.5em;
+    }
+
+    .email a {
+        font-size: 0.8em;
+    }
+    
+}
+
+@media screen and (max-width: 320px) {
+    .email a{
+        font-size: 0.6em;
+    }
+}
