@@ -44,13 +44,46 @@ document.addEventListener("DOMContentLoaded", function() {
         }
     }
 
+    // Function to reveal elements within a specific div one by one
+    function revealElementsSequentially(selector, interval) {
+        const parentElement = document.querySelector(selector);
+        if (parentElement) {
+            const childElements = parentElement.children;
+            let index = 0;
+
+            function revealNextElement() {
+                if (index < childElements.length) {
+                    childElements[index].style.visibility = "visible";
+                    childElements[index].classList.add('fade-in-animation');
+                    index++;
+                    setTimeout(revealNextElement, interval);
+                }
+            }
+
+            revealNextElement();
+        }
+    }
+
+    function addClassToSelector(selector, className) {
+        const element = document.querySelector(selector);
+        if (element) {
+            element.classList.add(className);
+        } else {
+            console.warn(`Element with selector "${selector}" not found.`);
+        }
+    }
+
     // Start typing the list items, then move to the email and contact text
     setTimeout(() => {
-        typeListItems(servicesList, 0, 100, function() {
+        typeListItems(servicesList, 0, 80, function() {
             contactText.style.visibility = "visible";
-            typeEffect(contactText, 100, function() {
+            typeEffect(contactText, 80, function() {
                 emailText.style.visibility = "visible";
-                typeEffect(emailText, 100);
+                typeEffect(emailText, 80, function() {
+                    revealElementsSequentially(".social-icons", 500, function() {
+                        addClassToSelector(".highlight", "animated-highlight");
+                    });
+                });
             });
         });
     }, 2000);

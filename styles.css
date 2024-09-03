@@ -6,6 +6,7 @@
     --background-color: #f4f4f4;
     --highlight-background-color: #3d3d3d;
     --highlight-color: #ffffff;
+    --brand-color: #fcb8c4;
     --font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
@@ -16,6 +17,7 @@
 
 }
 
+/* General Styling */
 body {
     font-family: var(--font-family);
     text-align: center;
@@ -45,6 +47,7 @@ a{
     text-decoration: none;
 }
 
+/*Page Layout and Flex Styling */
 .container {
     width: 600px;
     max-width: 100%;
@@ -62,10 +65,24 @@ a{
     max-width: 100%; /* Prevents it from exceeding the width of its container */
 }
 
+.contact, .email{
+    margin-bottom: 16px;
+}
+
+.logo {
+    width: 512px;
+    max-width: 100%;
+    margin-top:0;
+    margin-right:auto;
+    margin-bottom: 32px;
+    margin-left: auto;
+}
+
 .services ul {
     display: flex;
     flex-direction: column; /* Ensure list items stack vertically */
     width: 100%;
+    margin-bottom: 26px;
 }
 
 .services li {
@@ -74,24 +91,22 @@ a{
     word-break: break-all; /* Break long strings that don't fit */
     max-width: 100%; /* Prevent items from exceeding the container's width */
     white-space: normal; /* Allow text to wrap normally */
+    margin-bottom:18px;
+
 }
 
-.logo {
-    width: 512px;
-    max-width: 100%;
-    margin-top:0;
-    margin-right:auto;
-    margin-bottom: 0;
-    margin-left: auto;
+.contact p{
+    padding: 2px 3px;
 }
 
-.logo svg{
-    fill: var(--logo-color);
-}
-
+/* Animation Styling */
 .logo {
     opacity: 0;
     animation: fadeIn 3s forwards;
+}
+
+.fade-in-animation{
+    animation: fadeIn 1s forwards;
 }
 
 @keyframes fadeIn {
@@ -112,6 +127,47 @@ a{
     50% {
         opacity: 0;
     }
+}
+
+.animate-hover {
+    transition: transform 0.3s ease, color 0.3s ease, opacity 0.3s ease;
+}
+
+.animate-hover:hover {
+    transform: scale(1.1);
+    color: var(--brand-color);
+}
+
+.social-icons a {
+    opacity: 0;
+}
+
+/* Underline Hover Effect */
+.underline-hover-effect a {
+    text-decoration: none;
+    color: var(--link-color);
+    position:relative;
+}
+
+.underline-hover-effect a::after{
+    content: '';
+    display: block;
+    position:absolute;
+    z-index: -1;
+    bottom:5px;
+    left:0.2em;
+    height: 8px;
+    background: var(--brand-color);
+    width: 0%;
+    transition: width 0.7s ease-in-out; 
+}
+
+.underline-hover-effect a:hover::after {
+    width: 100%; 
+}
+
+.underline-hover-effect a::after {
+    transition: width 0.7s ease-in-out;
 }
 
 /* Show/hide the cursor when typing is done */
@@ -152,20 +208,8 @@ a{
 }*/
 
 /* Additional styling */
-.logo {
-    margin-bottom: 32px;
-}
-
-.services li{
-    margin-bottom:18px;
-}
-
-.services ul{
-    margin-bottom: 26px;
-}
-
-.contact, .email{
-    margin-bottom: 16px;
+.logo svg{
+    fill: var(--logo-color);
 }
 
 .contact{
@@ -175,37 +219,26 @@ a{
     text-transform: uppercase;
 }
 
-.contact p{
-    padding: 2px 3px;
-}
-
 .contact .type-animation-started{
     background-color: var(--highlight-background-color);
 }
 
 .email a {
-    text-decoration: none;
     color: var(--link-color);
     font-size: 1.2em;
 }
 
-.email a::after{
-    content: '';
-    display: block;
-    height: 3.2px;
-    background: var(--link-color);
-    width: 0%;
-    transition: width 0.7s ease-in-out; /* Smooth transition */
+.social-icons {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-content: center;
+    justify-content: center;
+    align-items: center;
+    gap: 0.3em;
 }
 
-.email a:hover::after {
-    width: 100%; /* Draw the line across the full width */
-}
-
-/* Optional: Reverse animation if needed using only transitions */
-.email a::after {
-    transition: width 0.7s ease-in-out; /* Smoothly transition the width */
-}
+/* Modernizr classes & styles */
 
 .logo #logo-img, .logo #logo-svg{
     width: 100%;
@@ -224,7 +257,7 @@ a{
     display: block;
 }
 
-
+/* Responsive styles */
 @media screen and (max-width: 640px) {
     .container {
         padding: 8px;
