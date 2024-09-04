@@ -22,7 +22,7 @@ body {
     font-family: var(--font-family);
     text-align: center;
     font-size: 1.4em;
-    font-weight: 720;
+    font-weight: 700;
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
@@ -56,6 +56,8 @@ a{
     flex-direction: column;
     flex-wrap: nowrap;
     align-items: center;
+    margin-left: auto; /* Flex fallback */
+    margin-right: auto; /* Flex fallback */
 }
 
 .email, .services, .contact p{
@@ -97,6 +99,7 @@ a{
 
 .contact p{
     padding: 2px 3px;
+    display: inline; /* Flex fallback */
 }
 
 /* Animation Styling */
@@ -245,17 +248,19 @@ a{
     display: none;
 }
 
-.no-video .logo video{
+.no-video .logo video, .lowbattery .logo video{
     display: none;
 }
 
-.no-video.inlinesvg .logo #logo-svg{
+.no-video.inlinesvg .logo #logo-svg, .lowbattery.inlinesvg .logo #logo-svg{
     display: block;
 }
 
-.no-video.no-inlinesvg .logo #logo-img{
+.no-video.no-inlinesvg .logo #logo-img, .lowbattery.no-inlinesvg .logo #logo-img{
     display: block;
 }
+
+
 
 /* Responsive styles */
 @media screen and (max-width: 640px) {
