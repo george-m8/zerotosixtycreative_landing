@@ -23,6 +23,7 @@ body {
     text-align: center;
     font-size: 1.4em;
     font-weight: 700;
+    font-variation-settings: 'wght' 700;
     color: var(--text-color);
     background-color: var(--background-color);
     margin: 0;
