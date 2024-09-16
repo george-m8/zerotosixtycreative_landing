@@ -9,17 +9,13 @@
     <meta name="keywords" content="web design, web development, website building, website changes, website tweaks, digital graphics, print graphics, business solutions, UK, Zero To Sixty Creative">
     <link rel="stylesheet" href="styles.css">
     <script src="modernizr-custom.js"></script>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=Nunito+Sans:ital,opsz,wght@0,6..12,200..1000;1,6..12,200..1000&display=swap');
-        /*@import url('https://fonts.googleapis.com/css2?family=Roboto+Flex:opsz,slnt,wdth,wght,GRAD,XOPQ,XTRA,YOPQ,YTAS,YTDE,YTFI,YTLC,YTUC@8..144,-10..0,25..151,100..1000,-200..150,27..175,323..603,25..135,649..854,-305..-98,560..788,416..570,528..760&display=swap');*/
-    </style>
-    <script src="https://kit.fontawesome.com/bf98aa3088.js" crossorigin="anonymous"></script>
+    <script src="loadGoogleFonts.js" async></script>
 </head>
 <body>
     <div class="container">
         <div class="logo">
-            <video autoplay loop muted playsinline>
-                <source src="video/animated-logo.webm" type='video/webm; codecs="vp9"'>
+            <video id="logo-video" autoplay loop muted playsinline>
+                <source src="video/animated-logo-.webm" type='video/webm; codecs="vp9"'>
                 <source src="video/animated-logo.mp4" type='video/mp4'>
                 <img src="images/logo.png" alt="Zero To Sixty Creative Logo" />
             </video>
@@ -71,13 +67,15 @@
             <a href="mailto:hello@zerotosixtycreative.co.uk" class="no-cursor">hello@zerotosixtycreative.co.uk</a>
         </div>
         <div class="social-icons">
+            <!-- FA icons currently only used for socials -->
+            <script src="https://kit.fontawesome.com/bf98aa3088.js" crossorigin="anonymous" async></script>
             <a href="https://github.com/george-m8" target="_blank" class="animate-hover"><i class="fa-brands fa-github"></i></a>
             <a href="https://www.linkedin.com/company/zero-to-sixty-creative/" target="_blank" class="animate-hover"><i class="fa-brands fa-linkedin"></i></a>
             <a href="https://www.youtube.com/channel/UC-vDj-yXuUzOE3EEMq1HJfg" target="_blank" class="animate-hover"><i class="fa-brands fa-youtube"></i></a>
             <!--<a href="" target="_blank"><i class="fa-brands fa-github"></i></a>-->
         </div>
     </div>
-
+    <script src="videoFallback.js"></script>
     <script src="typeText.js"></script>
 </body>
 </html>

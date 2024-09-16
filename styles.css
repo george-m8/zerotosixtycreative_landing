@@ -250,7 +250,9 @@ a{
 }
 
 .no-video .logo video, .lowbattery .logo video{
-    display: none;
+    visibility: hidden;
+    height: 0px;
+    position: absolute;
 }
 
 .no-video.inlinesvg .logo #logo-svg, .lowbattery.inlinesvg .logo #logo-svg{
