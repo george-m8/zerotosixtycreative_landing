@@ -75,11 +75,11 @@ document.addEventListener("DOMContentLoaded", function() {
 
     // Start typing the list items, then move to the email and contact text
     setTimeout(() => {
-        typeListItems(servicesList, 0, 80, function() {
+        typeListItems(servicesList, 0, 40, function() {
             contactText.style.visibility = "visible";
-            typeEffect(contactText, 80, function() {
+            typeEffect(contactText, 40, function() {
                 emailText.style.visibility = "visible";
-                typeEffect(emailText, 80, function() {
+                typeEffect(emailText, 40, function() {
                     revealElementsSequentially(".social-icons", 500, function() {
                         addClassToSelector(".highlight", "animated-highlight");
                     });
