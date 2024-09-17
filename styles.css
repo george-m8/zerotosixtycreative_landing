@@ -247,6 +247,15 @@ a{
     display: block;
 }
 
+.social-icons span{
+    display: none; /* Hidden if modernizr does not add no-inlinesvg class */
+    text-transform: uppercase;
+    margin: 0 10px;
+    font-size: 0.6em;
+    font-weight: 800;
+    font-variation-settings: "wght" 800;
+}
+
 /* Modernizr classes & styles */
 
 .logo #logo-img, .logo #logo-svg{
@@ -265,6 +274,14 @@ a{
 
 .no-video.no-inlinesvg .logo #logo-img, .lowbattery.no-inlinesvg .logo #logo-img{
     display: block;
+}
+
+.no-inlinesvg .social-icons a svg{
+    display:none;
+}
+
+.no-inlinesvg .social-icons span{
+    display: inline-block;
 }
 
 
