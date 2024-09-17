@@ -1,10 +1,10 @@
-.contact .type-animation-started {
+.contact {
     background-color: var(--highlight-background-color);
 }
 
 .social-icons a{
     visibility: visible;
-    /* FA SVG icons don't load without JS!*/
+    opacity: 1;
 }
 
 /* Hide video and show SVG logo when no JS, not going to worry about detecting inline SVG support. */
@@ -16,4 +16,50 @@
     display: block;
 }
 
-/* Add some animations so that the type 'animates' in some manner */
+/* Staggered fade in css effect for page elements */
+.container > div:not(.logo), .container .services li {
+    opacity: 0;
+    animation: fadeIn 0.6s forwards;
+}
+
+/* First, delays for list items */
+.container .services li:first-child {
+    animation-delay: 0.5s;
+}
+
+.container .services li:nth-child(2) {
+    animation-delay: 1s;
+}
+
+.container .services li:nth-child(3) {
+    animation-delay: 1.5s;
+}
+
+.container .services li:nth-child(4) {
+    animation-delay: 2s;
+}
+
+/* Delays for remaining divs */
+.container div:nth-child(3) {
+    animation-delay: 2.5s;
+}
+
+.container div:nth-child(4) {
+    animation-delay: 3s;
+}
+
+.container div:nth-child(5) {
+    animation-delay: 3.5s;
+}
+
+/* If further divs are added, this can be accounted for above */
+
+/* Animation keyframes for gradual fade-in */
+@keyframes fadeIn {
+from {
+    opacity: 0;
+}
+to {
+    opacity: 1;
+}
+}
