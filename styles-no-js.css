@@ -24,7 +24,7 @@
 
 /* First, delays for list items */
 .container .services li:first-child {
-    animation-delay: 0.5s;
+    animation-delay: calc(0.5s * 1);
 }
 
 .container .services li:nth-child(2) {
