@@ -8,8 +8,8 @@ window.onload = function() {
     let checkDuration = 1000; // Start with frequent checks (1 second)
     let totalCheckTime = 0; // Keep track of the total time we have been checking
     const maxCheckTime = 30000; // Stop checking after 30 seconds
-    const videoMaxPlayDurationMultiplier = 4; // 4x video duration to ensure stability
-    const debug = false;
+    const videoMaxPlayDurationMultiplier = 3; // 4x video duration to ensure stability
+    const debug = true;
 
     if (debug) console.log('Video fallback script loaded.');
 
@@ -40,8 +40,12 @@ window.onload = function() {
             totalCheckTime += checkDuration;
             
             if (totalCheckTime >= maxCheckTime) {
-                if (debug) console.log('Maximum check time reached. Showing fallback.');
-                showFallback();
+                if (debug) console.log('Max time reached.');
+                if (videoState !== 'playing') {
+                    if (debug) console.log('Showing fallback due to maximum check time reached.');
+                    showFallback();
+                }
+                if (debug) console.log('Exiting checks.');
                 clearInterval(checkInterval);
                 return;
             }
@@ -73,7 +77,7 @@ window.onload = function() {
                     // If the video has been playing for 4x duration, stop checking
                     stablePlayTime += checkDuration;
                     if (stablePlayTime >= videoDuration * 1000 * videoMaxPlayDurationMultiplier) {
-                        if (debug) console.log('Video has played continuously for 4x its duration. Exiting checks.');
+                        if (debug) console.log('Video has played continuously for multiple times its duration. Exiting checks.');
                         clearInterval(checkInterval);
                     }
                 }
@@ -122,6 +126,22 @@ window.onload = function() {
     }
 
     startVideoChecks();
+
+    // Add visibility change event listener
+    document.addEventListener('visibilitychange', function() {
+        if (document.visibilityState === 'visible') {
+            // User has returned to the page
+            if (debug) console.log('Page is visible again.');
+            if (video.paused && videoState === 'stopped') {
+                if (debug) console.log('Trying to play the video again...');
+                totalCheckTime = 0; // Reset check time
+                startVideoChecks();
+            }
+        }
+    });
 };
 
-//play video
+// get html5 video state
+function getVideoState() {
+    return document.getElementById('logo-video').paused ? 'paused' : 'playing';
+}

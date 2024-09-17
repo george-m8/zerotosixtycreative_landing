@@ -13,3 +13,7 @@
     - Game to be played with characters on screen?
     - Zerg rush?
     - Terminal style thing?
+- Video logo fallback script
+    - If the user changes tab then the video stops, this is fine though
+        - Currently we have a check when the video becomes visible again. This works currently but not perfect
+        - Would be better to add a window state variable so that we can change behaviour if the window is not visible and so the video should have paused.

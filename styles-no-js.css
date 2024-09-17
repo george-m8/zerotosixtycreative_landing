@@ -1,0 +1,19 @@
+.contact .type-animation-started {
+    background-color: var(--highlight-background-color);
+}
+
+.social-icons a{
+    visibility: visible;
+    /* FA SVG icons don't load without JS!*/
+}
+
+/* Hide video and show SVG logo when no JS, not going to worry about detecting inline SVG support. */
+.logo video{
+    display:none;
+}
+
+.logo #logo-svg{
+    display: block;
+}
+
+/* Add some animations so that the type 'animates' in some manner */

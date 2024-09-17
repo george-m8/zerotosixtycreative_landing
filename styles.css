@@ -34,7 +34,7 @@ body {
     height: 100vh;
 }
 
-svg, video{
+video, .logo svg, .logo img {
     width: 100%;
 }
 
@@ -242,10 +242,14 @@ a{
     gap: 0.3em;
 }
 
+.social-icons svg{
+    width: 24px;
+    display: block;
+}
+
 /* Modernizr classes & styles */
 
 .logo #logo-img, .logo #logo-svg{
-    width: 100%;
     display: none;
 }
 
