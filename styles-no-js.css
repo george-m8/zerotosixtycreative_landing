@@ -1,8 +1,9 @@
+/* This stylesheet is for the no-JS version of the site. */
 .contact {
-    background-color: var(--highlight-background-color);
+    background-color: var(--highlight-background-color); /* Highlight background color without typeText.js running */
 }
 
-.social-icons a{
+.social-icons a{ /* Make social icons visible without JS */
     visibility: visible;
     opacity: 1;
 }
@@ -24,7 +25,7 @@
 
 /* First, delays for list items */
 .container .services li:first-child {
-    animation-delay: calc(0.5s * 1);
+    animation-delay: 0.5s;
 }
 
 .container .services li:nth-child(2) {
@@ -39,7 +40,7 @@
     animation-delay: 2s;
 }
 
-/* Delays for remaining divs */
+/* Next, delays for remaining divs */
 .container div:nth-child(3) {
     animation-delay: 2.5s;
 }
