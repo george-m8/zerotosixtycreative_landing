@@ -1,4 +1,6 @@
 /* styles.css */
+
+/* Custom CSS Variables */
 :root {
     --text-color: #3d3d3d;
     --link-color: #3d3d3d;
@@ -10,14 +12,13 @@
     --font-family: "Nunito Sans", "Helvetica Neue", Helvetica, Arial, sans-serif;
   }
 
-
+/* General Styling */
 * {
     margin: 0;
     box-sizing: border-box;
 
 }
 
-/* General Styling */
 body {
     font-family: var(--font-family);
     text-align: center;
@@ -185,32 +186,6 @@ a{
     animation: none;
 }
 
-/* Fallback for typing effect */
-/*.typed-text {
-    white-space: nowrap;
-    overflow: hidden;
-    border-right: 3px solid black;
-    animation: typing 3.5s steps(40, end), blink-caret 0.75s step-end infinite;
-}
-
-@keyframes typing {
-    from {
-        width: 0;
-    }
-    to {
-        width: 100%;
-    }
-}
-
-@keyframes blink-caret {
-    from, to {
-        border-color: transparent;
-    }
-    50% {
-        border-color: black;
-    }
-}*/
-
 /* Additional styling */
 .logo svg{
     fill: var(--logo-color);
@@ -257,7 +232,6 @@ a{
 }
 
 /* Modernizr classes & styles */
-
 .logo #logo-img, .logo #logo-svg{
     display: none;
 }
