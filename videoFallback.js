@@ -9,7 +9,7 @@ window.onload = function() {
     let totalCheckTime = 0; // Keep track of the total time we have been checking
     const maxCheckTime = 30000; // Stop checking after 30 seconds
     const videoMaxPlayDurationMultiplier = 3; // 4x video duration to ensure stability
-    const debug = true;
+    const debug = false;
 
     if (debug) console.log('Video fallback script loaded.');
 
@@ -23,7 +23,7 @@ window.onload = function() {
 
     // Function to show video again
     function showVideo() {
-        console.log('Showing video.');
+        if (debug) console.log('Showing video.');
         html.classList.remove('no-video');
         html.classList.add('video');
         clearTimeout(fallbackTimeout); // Stop fallback timeout if video starts

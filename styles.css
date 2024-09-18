@@ -176,15 +176,14 @@ a{
 }
 
 /* Show/hide the cursor when typing is done */
-.cursor::after {
+/*.cursor::after {
     content: '.';
-    /*animation: blink-caret 1s step-end infinite;*/
 }
 
 .no-cursor::after {
     content: '';
     animation: none;
-}
+}*/ /* Removed for now */
 
 /* Additional styling */
 .logo svg{
@@ -198,7 +197,7 @@ a{
     text-transform: uppercase;
 }
 
-.contact .type-animation-started{
+.contact.type-animation-started{
     background-color: var(--highlight-background-color);
 }
 
