@@ -47,6 +47,7 @@ ul{
 a{
     color: var(--link-color);
     text-decoration: none;
+    cursor: pointer;
 }
 
 /*Page Layout and Flex Styling */
@@ -85,8 +86,10 @@ a{
 .services ul {
     display: flex;
     flex-direction: column; /* Ensure list items stack vertically */
+    align-items: center; /* Center items horizontally */
     width: 100%;
     margin-bottom: 26px;
+    gap: 8px;
 }
 
 .services li {
@@ -95,8 +98,15 @@ a{
     word-break: break-all; /* Break long strings that don't fit */
     max-width: 100%; /* Prevent items from exceeding the container's width */
     white-space: normal; /* Allow text to wrap normally */
-    margin-bottom:18px;
 
+}
+
+
+
+.services a, .services li {
+    flex-grow: 0; /* Prevent list items from growing */
+    display: inline-block;
+    width: fit-content;
 }
 
 .contact p{
@@ -266,7 +276,7 @@ a{
     }
 
     .logo, .services li{
-        margin-bottom:16px;
+        /*margin-bottom:16px;*/
     }
 
     .services ul{
@@ -300,7 +310,7 @@ a{
         margin-bottom: 0px;
     }
     .services li{
-        margin-bottom:8px;
+        /*margin-bottom:8px;*/
     }
 
     .contact, .email{
